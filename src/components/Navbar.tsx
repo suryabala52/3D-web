@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Hexagon } from 'lucide-react';
-import { cn } from '../utils/utils';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Hexagon } from "lucide-react";
+import { cn } from "../utils/utils";
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'AI Agents', path: '/agents' },
-  { name: 'Contact', path: '/contact' },
+  { name: "Home", path: "/" },
+  { name: "AI Agents", path: "/agents" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -18,21 +18,25 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'py-4 bg-background/60 backdrop-blur-md border-b border-white/10' : 'py-6 bg-transparent'
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled
+          ? "py-4 bg-background/60 backdrop-blur-md border-b border-white/10"
+          : "py-6 bg-transparent",
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
           <Hexagon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" />
-          <span className="text-xl font-bold tracking-tight">NEXUS<span className="text-primary">.AI</span></span>
+          <span className="text-xl font-bold tracking-tight">
+            NEXUS<span className="text-primary">.AI</span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -42,8 +46,10 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary relative py-2',
-                location.pathname === link.path ? 'text-primary' : 'text-zinc-400'
+                "text-sm font-medium transition-colors hover:text-primary relative py-2",
+                location.pathname === link.path
+                  ? "text-primary"
+                  : "text-zinc-400",
               )}
             >
               {link.name}
@@ -52,13 +58,19 @@ const Navbar = () => {
               )}
             </Link>
           ))}
-          <Link to="/contact" className="glass-button px-6 py-2.5 rounded-full text-sm font-medium text-white">
+          <Link
+            to="/contact"
+            className="glass-button px-6 py-2.5 rounded-full text-sm font-medium text-white"
+          >
             Start Project
           </Link>
         </nav>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-zinc-300" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button
+          className="md:hidden text-zinc-300"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
       </div>

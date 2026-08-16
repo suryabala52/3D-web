@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -9,27 +9,31 @@ const CustomCursor = () => {
   useEffect(() => {
     // Check if mobile device
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window || navigator.maxTouchPoints > 0);
+      setIsMobile(
+        window.innerWidth <= 768 ||
+          "ontouchstart" in window ||
+          navigator.maxTouchPoints > 0,
+      );
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
 
     if (isMobile) return;
 
     const addEventListeners = () => {
-      document.addEventListener('mousemove', mMove);
-      document.addEventListener('mouseenter', mEnter);
-      document.addEventListener('mouseleave', mLeave);
-      document.addEventListener('mousedown', mDown);
-      document.addEventListener('mouseup', mUp);
+      document.addEventListener("mousemove", mMove);
+      document.addEventListener("mouseenter", mEnter);
+      document.addEventListener("mouseleave", mLeave);
+      document.addEventListener("mousedown", mDown);
+      document.addEventListener("mouseup", mUp);
     };
 
     const removeEventListeners = () => {
-      document.removeEventListener('mousemove', mMove);
-      document.removeEventListener('mouseenter', mEnter);
-      document.removeEventListener('mouseleave', mLeave);
-      document.removeEventListener('mousedown', mDown);
-      document.removeEventListener('mouseup', mUp);
+      document.removeEventListener("mousemove", mMove);
+      document.removeEventListener("mouseenter", mEnter);
+      document.removeEventListener("mouseleave", mLeave);
+      document.removeEventListener("mousedown", mDown);
+      document.removeEventListener("mouseup", mUp);
     };
 
     const mMove = (el: MouseEvent) => {
@@ -53,7 +57,9 @@ const CustomCursor = () => {
         transform: `translate(${position.x - 16}px, ${position.y - 16}px) scale(${clicked ? 0.8 : hidden ? 0 : 1})`,
       }}
     >
-      <div className={`w-2 h-2 bg-white rounded-full transition-transform duration-200 ${clicked ? 'scale-50' : 'scale-100'}`} />
+      <div
+        className={`w-2 h-2 bg-white rounded-full transition-transform duration-200 ${clicked ? "scale-50" : "scale-100"}`}
+      />
     </div>
   );
 };

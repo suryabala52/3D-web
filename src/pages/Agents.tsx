@@ -1,10 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Network, Headset, TrendingUp, Search, Briefcase, Workflow } from 'lucide-react';
-import PageTransition from '../components/PageTransition';
-import SplineScene from '../components/3d/SplineScene';
+// React default import removed (not referenced)
+import { motion } from "framer-motion";
+import {
+  Network,
+  Headset,
+  TrendingUp,
+  Search,
+  Briefcase,
+  Workflow,
+} from "lucide-react";
+import PageTransition from "../components/PageTransition";
+import SplineScene from "../components/3d/SplineScene";
 
-const AGENT_SCENE = 'https://prod.spline.design/U7Fb-TVMX2mmG1DE/scene.splinecode';
+const AGENT_SCENE =
+  "https://prod.spline.design/U7Fb-TVMX2mmG1DE/scene.splinecode";
 
 const Agents = () => {
   return (
@@ -13,21 +21,23 @@ const Agents = () => {
         {/* HERO */}
         <section className="container mx-auto px-6 mb-24 flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-7xl font-bold tracking-tighter mb-6"
             >
-              INTELLIGENT AGENTS <br/>
+              INTELLIGENT AGENTS <br />
               <span className="text-primary">THAT WORK FOR YOU</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="text-xl text-zinc-400 mb-8"
             >
-              Deploy autonomous AI agents that act as an extension of your workforce. From customer service to deep market research, our agents handle the complexity so you can focus on growth.
+              Deploy autonomous AI agents that act as an extension of your
+              workforce. From customer service to deep market research, our
+              agents handle the complexity so you can focus on growth.
             </motion.p>
           </div>
           <div className="lg:w-1/2 h-[400px] lg:h-[600px] w-full relative">
@@ -39,14 +49,38 @@ const Agents = () => {
         <section className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: <Headset className="w-6 h-6"/>, title: 'Customer Service Agents', desc: 'Handles support tickets, resolves customer inquiries instantly, and escalates complex issues with full context.' },
-              { icon: <TrendingUp className="w-6 h-6"/>, title: 'Sales Agents', desc: 'Identifies leads, personalizes outreach, and schedules meetings completely autonomously 24/7.' },
-              { icon: <Network className="w-6 h-6"/>, title: 'Marketing Agents', desc: 'Generates campaign ideas, writes copy, and optimizes ad spending based on real-time performance.' },
-              { icon: <Search className="w-6 h-6"/>, title: 'Research Agents', desc: 'Scours the web, analyzes competitor data, and compiles comprehensive reports in minutes.' },
-              { icon: <Briefcase className="w-6 h-6"/>, title: 'Business Automation', desc: 'Connects your disparate SaaS tools and manages internal operational workflows securely.' },
-              { icon: <Workflow className="w-6 h-6"/>, title: 'Custom Agents', desc: 'Need something specific? We build tailor-made agents designed exclusively for your unique business logic.' }
+              {
+                icon: <Headset className="w-6 h-6" />,
+                title: "Customer Service Agents",
+                desc: "Handles support tickets, resolves customer inquiries instantly, and escalates complex issues with full context.",
+              },
+              {
+                icon: <TrendingUp className="w-6 h-6" />,
+                title: "Sales Agents",
+                desc: "Identifies leads, personalizes outreach, and schedules meetings completely autonomously 24/7.",
+              },
+              {
+                icon: <Network className="w-6 h-6" />,
+                title: "Marketing Agents",
+                desc: "Generates campaign ideas, writes copy, and optimizes ad spending based on real-time performance.",
+              },
+              {
+                icon: <Search className="w-6 h-6" />,
+                title: "Research Agents",
+                desc: "Scours the web, analyzes competitor data, and compiles comprehensive reports in minutes.",
+              },
+              {
+                icon: <Briefcase className="w-6 h-6" />,
+                title: "Business Automation",
+                desc: "Connects your disparate SaaS tools and manages internal operational workflows securely.",
+              },
+              {
+                icon: <Workflow className="w-6 h-6" />,
+                title: "Custom Agents",
+                desc: "Need something specific? We build tailor-made agents designed exclusively for your unique business logic.",
+              },
             ].map((agent, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
