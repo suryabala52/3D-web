@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-mono: 'Fira Code', monospace;
+  --color-background: #030303;
+  --color-foreground: #ffffff;
+  --color-primary: #6366f1;
+  --color-secondary: #a855f7;
+  --color-accent: #ec4899;
+}
+
+/* ── Global base styles ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #030303;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none; /* Custom cursor */
+}
+
+/* Disable custom cursor on touch devices */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* ── Utility classes ── */
+.text-gradient {
+  background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-panel {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+.glass-button {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255,255,255,0.10);
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ── Hide Spline watermark ── */
+a[href*="spline.design"],
+div[class*="logo"][style*="spline"],
+#spline-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure Spline canvas fills its container */
+.spline-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spline-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
